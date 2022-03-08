@@ -1,6 +1,6 @@
 <?php
 /*
- * @Description: 
+ * @Description: Reload Hyperf Server
  * @Author: (c) Pian Zhou <pianzhou2021@163.com>
  * @Date: 2022-03-05 22:34:25
  * @LastEditors: Pian Zhou
@@ -32,14 +32,14 @@ class ReloadServe extends HyperfCommand
         $this->container = $container;
 
         parent::__construct('serve:reload');
-    }
-
-    public function configure()
-    {
-        parent::configure();
         $this->setDescription('Reload Hyperf Servers.');
     }
 
+    /**
+     * main
+     *
+     * @return void
+     */
     public function handle()
     {
         $config = $this->container->get(ConfigInterface::class);
@@ -59,7 +59,12 @@ class ReloadServe extends HyperfCommand
         }
     }
 
-    public static function opCacheClear()
+    /**
+     * clear opcache
+     *
+     * @return void
+     */
+    protected static function opCacheClear()
     {
         if (function_exists('apc_clear_cache')) {
             apc_clear_cache();

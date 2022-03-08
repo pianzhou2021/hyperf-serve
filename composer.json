@@ -1,6 +1,6 @@
 {
     "name": "hyperf/serve",
-    "description": "A base serve library for Hyperf.",
+    "description": "serve package for Hyperf.",
     "license": "MIT",
     "keywords": [
         "php",
@@ -8,12 +8,12 @@
         "hyperf",
         "serve"
     ],
-    "homepage": "https://hyperf.io",
+    "homepage": "https://github.com/pianzhou2021/hyperf-serve",
     "support": {
-        "docs": "https://hyperf.wiki",
-        "issues": "https://github.com/hyperf/hyperf/issues",
-        "pull-request": "https://github.com/hyperf/hyperf/pulls",
-        "source": "https://github.com/hyperf/hyperf"
+        "docs": "https://github.com/pianzhou2021/hyperf-serve",
+        "issues": "https://github.com/pianzhou2021/hyperf-serve/issues",
+        "pull-request": "https://github.com/pianzhou2021/hyperf-serve/pulls",
+        "source": "https://github.com/pianzhou2021/hyperf-serve"
     },
     "require": {
         "php": ">=7.2",

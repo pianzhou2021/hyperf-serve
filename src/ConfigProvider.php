@@ -1,6 +1,6 @@
 <?php
 /*
- * @Description: 
+ * @Description: Config for Hyperf Server
  * @Author: (c) Pian Zhou <pianzhou2021@163.com>
  * @Date: 2022-03-06 20:17:04
  * @LastEditors: Pian Zhou
@@ -10,7 +10,6 @@
 declare(strict_types=1);
 namespace Hyperf\Serve;
 
-use Swoole\Server as SwooleServer;
 use Hyperf\Serve\Command\ReloadServe;
 use Hyperf\Serve\Command\StopServe;
 
@@ -20,7 +19,6 @@ class ConfigProvider
     {
         return [
             'dependencies' => [
-                SwooleServer::class => SwooleServerFactory::class,
             ],
             'listeners' => [
             ],
@@ -29,35 +27,30 @@ class ConfigProvider
                 StopServe::class,
             ],
             'annotations' => [
-                'scan' => [
-                    'paths' => [
-                        __DIR__,
-                    ],
-                ],
             ],
             'publish' => [
-                $this->publishNotify(),
+                $this->publishWatch(),
             ],
         ];
     }
 
     /**
-     * 发布notify
+     * publish watch
      *
      * @return array
      */
-    protected function publishNotify()
+    protected function publishWatch()
     {
         $config = [
-            'id' => 'config',
-            'description' => 'The notify for server.',
-            'source' => __DIR__ . '/../publish/notify/',
-            'destination' => BASE_PATH . '/bin/notify',
+            'id' => 'code watch',
+            'description' => 'The code watch for server.',
+            'source' => __DIR__ . '/../publish/watch/',
+            'destination' => BASE_PATH . '/bin/watch',
         ];
 
         $os = $this->os();
         
-        $config['source']   = $config['source'] . $os . '-' . $this->arch() . '-' . 'notify';
+        $config['source']   = $config['source'] . $os . '-' . $this->arch();
 
         if ($os == 'WINDOWS') {
             $config['source']       = $config['source'].'.exe';
@@ -68,7 +61,7 @@ class ConfigProvider
     }
 
     /**
-     * 判断操作系统类型
+     * get os type
      *
      * @return string
      */
@@ -86,7 +79,7 @@ class ConfigProvider
     }
 
     /**
-     * 操作系统架构
+     * get server arch
      *  
      * x86_64 i386 ARM
      * @return string
