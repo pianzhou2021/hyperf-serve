@@ -1,5 +1,5 @@
 {
-    "name": "hyperf/serve",
+    "name": "pianzhou/hyperf-serve",
     "description": "serve package for Hyperf.",
     "license": "MIT",
     "keywords": [
@@ -20,18 +20,9 @@
         "hyperf/command": "~2.2.0"
 
     },
-    "suggest": {
-        "hyperf/framework": "Dump the info after server start.",
-        "hyperf/event": "Dump the info after server start."
-    },
     "autoload": {
         "psr-4": {
-            "Hyperf\\Serve\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "HyperfTest\\Serve\\": "tests/"
+            "PianZhou\\Hyperf\\Serve\\": "src/"
         }
     },
     "config": {
@@ -39,7 +30,7 @@
     },
     "extra": {
         "hyperf": {
-            "config": "Hyperf\\Serve\\ConfigProvider"
+            "config": "PianZhou\\Hyperf\\Serve\\ConfigProvider"
         }
     }
 }

@@ -4,12 +4,12 @@
  * @Author: (c) Pian Zhou <pianzhou2021@163.com>
  * @Date: 2022-03-05 22:34:25
  * @LastEditors: Pian Zhou
- * @LastEditTime: 2022-03-06 20:37:56
+ * @LastEditTime: 2022-03-08 20:28:42
  */
 
 declare(strict_types=1);
 
-namespace Hyperf\Serve\Command;
+namespace PianZhou\Hyperf\Serve\Command;
 
 use Hyperf\Command\Command as HyperfCommand;
 use Hyperf\Command\Annotation\Command;

@@ -11,7 +11,7 @@ Hyperf Serve is a hyperf-based third-party extension package, with it, you can e
 ### Install 
 
 ```
-composer require hyperf/serve
+composer require pianzhou/hyperf-serve
 ```
 ### Start Hyperf Server
 ```
@@ -27,30 +27,30 @@ php ./bin/hyperf.php serve:stop
 ```
 ### Code Hot Loading (Available on all platforms MAC/WINDOWS/LINUX/FREEBSD)
 ```
-php ./bin/hyperf.php vendor:publish hyperf/serve
-chmod +x ./bin/watch
-./bin/watch
+php ./bin/hyperf.php vendor:publish pianzhou/hyperf-serve
+chmod +x ./bin/watcher
+./bin/watcher
 ```
 ### Or Use Composer for code hot loading
 #### write code to your composer.json
 ```
     "scripts": {
-        "watch": "./bin/watch"
+        "watcher": "./bin/watcher"
     }
 ```
 #### Use it
 ```
-composer watch
+composer watcher
 ```
 
 #### Note
 Because the default command called by the watch command is `php ./bin/hyperf.php serve:reload`, so the `php` path need add to the environment variable, or you can write your watch command like 
 ```
-./bin/watch --command="your command here"
+./bin/watcher --command="your command here"
 ```
 By the way, if you are using docker development environment, you can write
 ```
-./bin/watch --command="docker exec -d mydocker php /opt/www/bin/hyperf.php serve:reload"
+./bin/watcher --command="docker exec -d mydocker php /opt/www/bin/hyperf.php serve:reload"
 ```
 
 ### Notice

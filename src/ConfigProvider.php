@@ -4,14 +4,14 @@
  * @Author: (c) Pian Zhou <pianzhou2021@163.com>
  * @Date: 2022-03-06 20:17:04
  * @LastEditors: Pian Zhou
- * @LastEditTime: 2022-03-07 22:30:23
+ * @LastEditTime: 2022-03-08 20:34:33
  */
 
 declare(strict_types=1);
-namespace Hyperf\Serve;
+namespace PianZhou\Hyperf\Serve;
 
-use Hyperf\Serve\Command\ReloadServe;
-use Hyperf\Serve\Command\StopServe;
+use PianZhou\Hyperf\Serve\Command\ReloadServe;
+use PianZhou\Hyperf\Serve\Command\StopServe;
 
 class ConfigProvider
 {
@@ -42,10 +42,10 @@ class ConfigProvider
     protected function publishWatch()
     {
         $config = [
-            'id' => 'code watch',
-            'description' => 'The code watch for server.',
-            'source' => __DIR__ . '/../publish/watch/',
-            'destination' => BASE_PATH . '/bin/watch',
+            'id' => 'watcher',
+            'description' => 'The code watcher for server.',
+            'source' => __DIR__ . '/../publish/watcher/',
+            'destination' => BASE_PATH . '/bin/watcher',
         ];
 
         $os = $this->os();
