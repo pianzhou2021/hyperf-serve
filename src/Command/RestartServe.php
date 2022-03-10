@@ -41,7 +41,7 @@ class RestartServe extends HyperfCommand
         $this->info("send server start command at " . date("Y-m-d H:i:s"));
 
         $php    = 'php';
-        if (strtolower(substr($_SERVER['_'], -3)) == 'php' || strtolower(substr($_SERVER['_'], -6)) == 'php.exe') {
+        if (strtolower(substr($_SERVER['_'], -3)) == 'php' || strtolower(substr($_SERVER['_'], -7)) == 'php.exe') {
             $php = $_SERVER['_'];
         }
         
