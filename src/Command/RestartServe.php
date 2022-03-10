@@ -40,7 +40,7 @@ class RestartServe extends HyperfCommand
         $this->call("serve:stop");
         $this->info("send server start command at " . date("Y-m-d H:i:s"));
         
-        $command    = $_SERVER['_'] . " " . BASE_PATH . DIRECTORY_SEPARATOR . $_SERVER['SCRIPT_NAME'] . " start";
+        $command    = $_SERVER['_'] . " " . realpath($_SERVER['SCRIPT_NAME']) . " start";
         if (!$daemonize) {
             $command    = $command . " &";
         }
