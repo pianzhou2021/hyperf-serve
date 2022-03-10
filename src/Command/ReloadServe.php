@@ -32,7 +32,7 @@ class ReloadServe extends HyperfCommand
         $this->container = $container;
 
         parent::__construct('serve:reload');
-        $this->setDescription('Reload Hyperf Servers.');
+        $this->setDescription('Reload Hyperf Servers ( Reload Workers only ).');
     }
 
     /**
@@ -43,7 +43,7 @@ class ReloadServe extends HyperfCommand
     public function handle()
     {
         $config = $this->container->get(ConfigInterface::class);
-        $pidFile = $config->get('server.settings.pid_file', BASE_PATH . '/runtime/hyperf.pid');
+        $pidFile = $config->get('server.settings.'.\Swoole\Constant::OPTION_PID_FILE, BASE_PATH . '/runtime/hyperf.pid');
         
         if (file_exists($pidFile)) {
             self::opCacheClear();
