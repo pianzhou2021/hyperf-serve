@@ -12,6 +12,7 @@ namespace PianZhou\Hyperf\Serve;
 
 use PianZhou\Hyperf\Serve\Command\ReloadServe;
 use PianZhou\Hyperf\Serve\Command\StopServe;
+use PianZhou\Hyperf\Serve\Command\RestartServe;
 
 class ConfigProvider
 {
@@ -25,6 +26,7 @@ class ConfigProvider
             'commands' => [
                 ReloadServe::class,
                 StopServe::class,
+                RestartServe::class,
             ],
             'annotations' => [
             ],

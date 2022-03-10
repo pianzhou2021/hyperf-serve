@@ -43,7 +43,7 @@ class StopServe extends HyperfCommand
     public function handle()
     {
         $config = $this->container->get(ConfigInterface::class);
-        $pidFile = $config->get('server.settings.pid_file', BASE_PATH . '/runtime/hyperf.pid');
+        $pidFile = $config->get('server.settings.'.\Swoole\Constant::OPTION_PID_FILE, BASE_PATH . '/runtime/hyperf.pid');
         
         if (file_exists($pidFile)) {
             $pid = intval(file_get_contents($pidFile));
@@ -54,7 +54,7 @@ class StopServe extends HyperfCommand
                 \Swoole\Process::kill($pid);
             }
         } else {
-            $this->error("pid file does not exist, please check whether to run in the daemon mode!");
+            $this->error("pid file does not exist, server no running!");
         }
     }
 }
